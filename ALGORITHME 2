@@ -1,26 +1,23 @@
-Voici l'algorithme correspondant au code Python de l'exo2 :
 
-1. Importer le module `product` de la bibliothèque `itertools`.
-2. Définir la fonction `fonction_logique(A, B, C)` :
-   1. Prendre trois arguments booléens : `A`, `B`, et `C`.
-   2. Retourner le résultat de l'expression logique : `(A and B) or (not C)`.
-3. Définir la fonction `tableau_karnaugh_gray(func)` :
-   1. Afficher l'en-tête du tableau de Karnaugh en code de Gray.
-   2. Pour chaque indice de 0 à 3 :
-      1. Calculer l'indice de Gray correspondant à l'indice actuel.
-      2. Extraire les bits A et B de l'indice de Gray.
-      3. Déterminer les valeurs de A et B en fonction des bits extraits.
-      4. Afficher les valeurs de A et B, ainsi que les valeurs de la fonction logique évaluées pour chaque combinaison de B' C', B' C, BC, et BC'.
-4. Définir la fonction `fonction_minimisee(func)` :
-   1. Initialiser une liste `termes`.
-   2. Pour chaque combinaison de valeurs booléennes de `A`, `B`, et `C` :
-      1. Si la fonction `func` évaluée avec ces valeurs est vraie, ajouter le terme correspondant à la liste `termes`.
-   3. Initialiser une liste `simplified_terms`.
-   4. Tant qu'il y a des termes dans `termes` :
-      1. Extraire le premier terme de `termes`.
-      2. Parcourir tous les autres termes restants dans `termes`.
-      3. Si un seul bit diffère entre le terme actuel et un autre terme, remplacer ce bit par un tiret dans le terme actuel et retirer l'autre terme de `termes`.
-      4. Ajouter le terme simplifié à la liste `simplified_terms`.
-   5. Retourner la forme minimisée de la fonction logique en joignant les termes simplifiés par un "+".
-5. Afficher le tableau de Karnaugh en code de Gray en appelant la fonction `tableau_karnaugh_gray(fonction_logique)`.
-6. Trouver et afficher la fonction minimisée en appelant la fonction `fonction_minimisee(fonction_logique)` et en affichant le résultat.
+1. **Construction de la table de vérité :**
+   - La fonction `get_truth_table(num_variables)` demande à l'utilisateur de saisir les valeurs de la table de vérité pour chaque combinaison de variables. Ces valeurs sont ensuite stockées dans une liste.
+
+2. **Identification des mintermes :**
+   - Les mintermes sont les lignes de la table de vérité pour lesquelles la sortie est vraie (1). Ces mintermes sont stockés dans une liste.
+
+3. **Création de la carte de Karnaugh :**
+   - La carte de Karnaugh est une grille bidimensionnelle qui représente la table de vérité.
+   - La grille est créée avec des dimensions appropriées en fonction du nombre de variables.
+
+4. **Remplissage de la carte de Karnaugh :**
+   - Les mintermes identifiés précédemment sont placés dans la carte de Karnaugh.
+
+5. **Regroupement des mintermes adjacents :**
+   - Les mintermes qui sont adjacents dans la carte de Karnaugh sont regroupés ensemble.
+
+6. **Simplification des groupes :**
+   - Chaque groupe de mintermes est transformé en une expression simplifiée.
+   - Les termes de chaque groupe sont combinés en utilisant la logique des variables booléennes (AND, NOT, etc.).
+
+7. **Retour du résultat :**
+   - L'expression simplifiée 
